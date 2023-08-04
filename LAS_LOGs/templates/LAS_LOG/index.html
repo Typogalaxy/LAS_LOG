@@ -1,0 +1,29 @@
+<head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .centered {
+      text-align: center;
+    }
+
+    p {
+      font-family: "Smiley Sans", Arial;
+      font-size: 25px;
+    }
+  </style>
+</head>
+
+<body style="background-image: url('/Users/yi/PycharmProjects/LAS_LOG/LAS_LOGs/templates/LAS_LOG/background1.png');">
+  <div class="centered">
+    <p>Welcome to LAS LOG!!!</p>
+    <p>LAS LOG帮助LAS玩家记录自己在服务器中所做的事，以及给其他玩家的留言 -- typo</p>
+    <p><a href="{% url 'topics' %}">Topics</a></p>
+  </div>
+</body>

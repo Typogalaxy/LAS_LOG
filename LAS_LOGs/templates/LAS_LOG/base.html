@@ -1,0 +1,24 @@
+<head>
+  <style>
+    p {
+      font-family: "Smiley Sans", Arial;
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+
+<p>
+  <a href="{% url 'LAS_LOGs:index' %}">返回 LAS_LOGs 主页</a> -
+  <a href="{% url 'LAS_LOGs:topics' %}">Topics</a> -
+  {% if user.is_authenticated %}
+    Hello, {{ user.username }}.
+    <a href="{% url 'users:logout' %}">log out</a>
+  {% else %}
+    <a href="{% url 'users:register' %}">register</a> -
+    <a href="{% url 'users:login' %}">log in</a>
+  {% endif %}
+  <br><br>
+</p>
+
+{% block content %}{% endblock content %}
