@@ -1,0 +1,35 @@
+<input type="text" id="inputString" placeholder="输入字符串">
+<button id="renderLinkButton">渲染链接</button>
+<div id="linkContainer"></div>
+
+<script>
+    document.getElementById("renderLinkButton").addEventListener("click", function() {
+        var inputString = document.getElementById("inputString").value;
+        var linkContainer = document.getElementById("linkContainer");
+
+        // 使用正则表达式识别链接
+        var linkRegex = /https?:\/\/\S+/g;
+        var links = inputString.match(linkRegex);
+
+        if (links) {
+            linkContainer.innerHTML = ''; // 清空之前的内容
+
+            links.forEach(function(link) {
+                var linkElement = document.createElement("a");
+                linkElement.href = link;
+                linkElement.textContent = link;
+                linkElement.style.color = "blue"; // 设置蓝色
+
+                // 在点击时打开链接
+                linkElement.addEventListener("click", function(e) {
+                    e.preventDefault(); // 阻止默认链接行为
+                    window.open(link);
+                });
+
+                linkContainer.appendChild(linkElement);
+                linkContainer.appendChild(document.createElement("br"));
+            });
+        }
+    });
+</script>
+
