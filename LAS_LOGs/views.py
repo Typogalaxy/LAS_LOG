@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from .models import Topic, Entry
+from .models import Topic, Entry, Link
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .forms import TopicForm, EntryForm
+from .forms import TopicForm, EntryForm, LinkForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -83,3 +83,25 @@ def edit_entry(request, entry_id):
             return HttpResponseRedirect(reverse('LAS_LOGs:topic', args=[topic.id]))
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'LAS_LOG/edit_entry.html', context)
+
+
+@login_required
+def links(request):
+    all_link = Link.objects.order_by('date_added')
+    context = {'links': all_link}
+    return render(request, 'LAS_LOG/links.html', context)
+
+
+@login_required()
+def new_link(request):
+    if request.method != 'POST':
+        # 未提交数据：创建一个新表单
+        form = LinkForm()
+    else:
+        # POST提交的数据,对数据进行处理
+        form = LinkForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('LAS_LOGs:links'))
+    context = {'form': form}
+    return render(request, 'LAS_LOG/new_link.html', context)

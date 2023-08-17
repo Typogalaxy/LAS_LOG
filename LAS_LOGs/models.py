@@ -24,3 +24,15 @@ class Entry(models.Model):
     def __str__(self):
         """返回模型的字符串表示"""
         return self.text[:50] + "..."
+
+
+class Link(models.Model):
+    """链接页面"""
+
+    text = models.CharField(max_length=100)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        """返回模型的字符串表示"""
+        return self.text
+

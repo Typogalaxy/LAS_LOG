@@ -38,7 +38,10 @@ INSTALLED_APPS = [
 
     # 我的应用程序 my own app
     'LAS_LOGs.apps.LasLogsConfig',
-    'users'
+    'users',
+    
+    #第三方
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +124,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/users/login/'
+
+# django-bootstrap3的设置
+BOOTSTRAP3 = {
+ 'include_jquery': True,
+ }

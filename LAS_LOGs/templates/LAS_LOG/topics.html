@@ -9,23 +9,24 @@
     .custom-font-topics {
       font-family: "Smiley Sans", Arial;
       font-size: 25px;
-      color: #333;
+      color: black;
     }
   </style>
 
-  <p class="custom-font-topic">&emsp;Topics</p>
+  <p class="custom-font-topic"> Topics</p>
 
   <ul>
     {% for topic in topics %}
       <li class="custom-font-topics">
-          <a href="{% url 'LAS_LOGs:topic' topic.id %}">{{ topic }}</a>
+        <a href="{% url 'LAS_LOGs:topic' topic.id %}">{{ topic }}</a>
       </li>
     {% empty %}
       <li class="custom-font-topics" >&emsp;No topics have been added yet.</li>
     {% endfor %}
   </ul>
 
-  <a href="{% url 'LAS_LOGs:new_topic' %}">Add a new topic:</a>
-
+  <li class="custom-font-topics">
+        <a href="{% url 'LAS_LOGs:new_topic' %}">Add a new topic:</a>
+  </li>
 
 {% endblock content %}

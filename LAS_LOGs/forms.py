@@ -1,5 +1,5 @@
 from django import forms
-from .models import Topic, Entry
+from .models import Topic, Entry, Link
 
 
 class TopicForm(forms.ModelForm):
@@ -16,3 +16,11 @@ class EntryForm(forms.ModelForm):
         fields = ['text']
         labels = {'text': ''}
         widgets = {'text': forms.Textarea(attrs={'cols': 80})}
+
+
+class LinkForm(forms.ModelForm):
+
+    class Meta:
+        model = Link
+        fields = ['text']
+        labels = {'text': ''}
