@@ -1,0 +1,43 @@
+{% extends 'LAS_LOG/base.html' %}
+
+{% block content %}
+  <style>
+    .custom-font-time {
+      font-family: "Smiley Sans", Arial;
+      font-size: 25px;
+      color: #333;
+    }
+    .custom-font-topic {
+      font-family: "Smiley Sans", Arial;
+      font-size: 28px;
+      color: #333;
+    }
+  </style>
+
+  <p class="custom-font-topic">Topic: {{ topic }}</p>
+
+  <p class="custom-font-time">Entries:</p>
+
+  <p class="custom-font-time">
+    <a href="{% url 'LAS_LOGs:new_entry' topic.id %}">Add new entry</a>
+  </p>
+
+  <ul>
+  {% for entry in entries %}
+    <li class="custom-font-time">
+      <div>
+        <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+        <p>{{ entry.text|linebreaks }}</p>
+        <p>
+          <a href="{% url 'LAS_LOGs:edit_entry' entry.id %}">edit entry</a>
+        </p>
+      </div>
+    </li>
+  {% empty %}
+    <li class="custom-font-time">
+      There are no entries for this topic yet.
+    </li>
+  {% endfor %}
+  </ul>
+
+{% endblock content %}

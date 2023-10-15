@@ -1,0 +1,11 @@
+{% extends "LAS_LOG/base.html" %}
+{% block content %}
+  <p>Add a new link:</p>
+
+  <form action="{% url 'LAS_LOGs:new_link' %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit link</button>
+  </form>
+
+{% endblock content %}

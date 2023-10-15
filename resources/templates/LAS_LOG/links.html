@@ -1,0 +1,35 @@
+{% extends "LAS_LOG/base.html" %}
+{% block content %}
+  <style>
+    .custom-font-link {
+      font-family: "Smiley Sans", Arial;
+      font-size: 28px;
+      color: black;
+    }
+    .custom-font-links {
+      font-family: "Smiley Sans", Arial;
+      font-size: 25px;
+      color: blue;
+      font-weight: bold;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+
+  <p class="custom-font-link"> Links</p>
+
+  <ul>
+    {% for link in links %}
+      <li class="custom-font-link">
+        <p>
+          <a href="{{ link.url }}">{{ link.text }}</a>
+        </p>
+      </li>
+    {% empty %}
+      <li class="custom-font-link" >&emsp;No links have been added yet.</li>
+    {% endfor %}
+  </ul>
+  <li class="custom-font-link">
+    <a href="{% url 'LAS_LOGs:new_link' %}">Add a new link:</a>
+  </li>
+{% endblock content %}
