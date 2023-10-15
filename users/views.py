@@ -25,6 +25,6 @@ def register(request):
             # 让用户自动登录，再重定向到主页
             authenticated_user = authenticate(username=new_user.username, password=request.POST['password1'])
             login(request, authenticated_user)
-            return HttpResponseRedirect(reverse('learning_logs:index'))
+            return HttpResponseRedirect(reverse('LAS_LOGs:index'))
     context = {'form': form}
     return render(request, 'users/register.html', context)

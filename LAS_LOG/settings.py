@@ -59,8 +59,8 @@ ROOT_URLCONF = 'LAS_LOG.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': ['/Users/yi/PycharmProjects/LAS_LOG/resources/templates/'],
+        'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
