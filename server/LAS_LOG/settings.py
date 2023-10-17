@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 我的应用程序 my own app
-    'LAS_LOGs.apps.LasLogsConfig',
-    'users',
+    'server.service.LAS_LOGs',
+    'server.service.users',
     
     #第三方
     'bootstrap3',
@@ -54,13 +54,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'LAS_LOG.urls'
+ROOT_URLCONF = 'server.LAS_LOG.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['/Users/yi/PycharmProjects/LAS_LOG/resources/templates/'],
-        'APP_DIRS': False,
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'LAS_LOG.wsgi.application'
+WSGI_APPLICATION = 'server.LAS_LOG.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

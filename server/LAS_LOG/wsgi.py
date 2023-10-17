@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'LAS_LOG.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'server.LAS_LOG.settings')
 
 application = get_wsgi_application()

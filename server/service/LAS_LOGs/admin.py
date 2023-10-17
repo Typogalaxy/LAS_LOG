@@ -1,5 +1,5 @@
 from django.contrib import admin
-from LAS_LOGs.models import Topic, Entry
+from server.service.LAS_LOGs.models import Topic, Entry
 
 admin.site.register(Topic)
 admin.site.register(Entry)
