@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure--6v8-a_7)7%^hf-nt!4t22af5avkc#$o!@kpip-%u^(#596^mm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = ['192.168.1.5', '0.0.0.0', '127.0.0.1']
 
 # Application definition
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # 我的应用程序 my own app
     'server.service.LAS_LOGs',
     'server.service.users',
+    'server.service.tags',
     
     #第三方
     'bootstrap3',
@@ -60,7 +61,7 @@ ROOT_URLCONF = 'server.LAS_LOG.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR.parent,'resources/templates')],
+        'DIRS': [os.path.join(BASE_DIR.parent, 'resources/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
