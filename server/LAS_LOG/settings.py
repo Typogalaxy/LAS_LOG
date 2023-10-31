@@ -132,4 +132,4 @@ BOOTSTRAP3 = {
  'include_jquery': True,
  }
 
-# AUTH_USER_MODEL = 'users.CustomUser'
+# AUTH_USER_MODEL = 'server.service.users.CustomUser'
