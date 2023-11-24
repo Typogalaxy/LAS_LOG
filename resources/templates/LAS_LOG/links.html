@@ -22,11 +22,20 @@
     {% for link in links %}
       <li class="custom-font-link">
         <p>
-          <a href="{{ link.url }}">{{ link.text }}</a>
+          <a href= "link.text" id="link.id">{{ link }}</a>
+
+          <script>
+            var link = document.getElementById("link.id");
+            link.addEventListener("click", function(event) {
+              event.preventDefault();
+              var url = document.getElementById("myLink")
+              window.open(link.text)
+            });
+          </script>
         </p>
       </li>
     {% empty %}
-      <li class="custom-font-link" >&emsp;No links have been added yet.</li>
+      <li class="custom-font-link" >No links have been added yet.</li>
     {% endfor %}
   </ul>
   <li class="custom-font-link">

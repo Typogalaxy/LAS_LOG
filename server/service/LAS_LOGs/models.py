@@ -35,3 +35,14 @@ class Link(models.Model):
     def __str__(self):
         """返回模型的字符串表示"""
         return self.text
+
+
+class Work(models.Model):
+    """链接页面"""
+
+    title = models.CharField(max_length=100)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        """返回模型的字符串表示"""
+        return self.title
