@@ -1,0 +1,28 @@
+{% extends "LAS_LOG/base.html" %}
+{% block content %}
+  <style>
+    .custom-font-tag {
+      font-family: "Smiley Sans", Arial;
+      font-size: 28px;
+      color: #333;
+    }
+    .custom-font-tags {
+      font-family: "Smiley Sans", Arial;
+      font-size: 25px;
+      color: black;
+    }
+  </style>
+
+  <p class="custom-font-tag"> Tags</p>
+
+  <ul>
+    {% for tag in default_tags %}
+      <li class="custom-font-tags">
+        <p>{{ tag }}</p>
+      </li>
+    {% empty %}
+      <li class="custom-font-tags" >&emsp;No tags have been added yet.</li>
+    {% endfor %}
+  </ul>
+
+{% endblock content %}

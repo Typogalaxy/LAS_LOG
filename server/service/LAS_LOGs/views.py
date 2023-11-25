@@ -23,8 +23,9 @@ def topics(request):
 def topic(request, topic_id):
     """显示单个主题及其所有的条目"""
     topic_specific = Topic.objects.get(id=topic_id)
-    entries = topic_specific.entry_set.order_by('-date_added')
-    context = {'topic': topic_specific, 'entries': entries}
+    topic_user = topic_specific.user
+    entries = topic_specific.entry_set.order_by('date_added')
+    context = {'topic': topic_specific, 'topic_user': topic_user, 'entries': entries}
     return render(request, 'LAS_LOG/topic.html', context)
 
 
@@ -105,3 +106,4 @@ def new_link(request):
             return HttpResponseRedirect(reverse('LAS_LOGs:links'))
     context = {'form': form}
     return render(request, 'LAS_LOG/new_link.html', context)
+

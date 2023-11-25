@@ -14,7 +14,7 @@
     }
   </style>
 
-  <p class="custom-font-topic">Topic: {{ topic }}</p>
+  <p class="custom-font-topic">Topic: {{ topic }} -- {{ topic_user }}</p>
 
   <p class="custom-font-time">Entries:</p>
 
@@ -26,8 +26,8 @@
   {% for entry in entries %}
     <li class="custom-font-time">
       <div>
-        <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
-        <p>{{ entry.text|linebreaks }}</p>
+        <p>{{ entry.date_added|date:'M d, Y H:i' }} -- {{ entry.user }}</p>
+        <p>{{ entry.text }}</p>
         <p>
           <a href="{% url 'LAS_LOGs:edit_entry' entry.id %}">edit entry</a>
         </p>

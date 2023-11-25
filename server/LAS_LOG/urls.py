@@ -19,7 +19,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'', include(('server.service.LAS_LOGs.urls', 'LAS_LOGs'), namespace='LAS_LOGs')),
-    path(r'users/', include(('server.service.users.urls', 'users'), namespace='users')),
-    path(r'topics/', include('server.service.LAS_LOGs.urls')),
+    path('', include(('server.service.LAS_LOGs.urls', 'LAS_LOGs'), namespace='LAS_LOGs')),
+    path('users/', include(('server.service.users.urls', 'users'), namespace='users')),
+    path('topics/', include('server.service.LAS_LOGs.urls')),
+    path('tags/', include('server.service.tags.urls'))
 ]

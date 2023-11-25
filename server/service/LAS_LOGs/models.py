@@ -1,10 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Topic(models.Model):
     """主题"""
     text = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, models.CASCADE)
 
     def __str__(self):
         """返回模型的字符串表示"""
@@ -17,6 +19,7 @@ class Entry(models.Model):
     topic = models.ForeignKey(Topic, models.CASCADE)
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, models.CASCADE)
 
     class Meta:
         verbose_name_plural = 'entries'
@@ -42,6 +45,7 @@ class Work(models.Model):
 
     title = models.CharField(max_length=100)
     date_added = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, models.CASCADE)
 
     def __str__(self):
         """返回模型的字符串表示"""
